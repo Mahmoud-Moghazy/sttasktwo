@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: black;
+}
+
+.slider {
+  position: relative;
+  max-width: 100%;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  display: none;
+  transition: opacity 1s ease;
+}
+
+.slide.active {
+  display: block;
+  opacity: 1;
+}
+
+.slider .slides .slide img {
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.navigation {
+  position: absolute;
+  top: 50%;
+  left: 1%;
+  width: 98%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.navigation .prev, .navigation .next {
+  cursor: pointer;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 20px;
+}
+
+
+.pagination {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.pagination .dot {
+  cursor: pointer;
+  height: 10px;
+  width: 10px;
+  margin: 0 5px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.pagination .dot.active {
+  background-color: white;
+}
+
+@media (max-width: 768px) {
+  .navigation .prev, .navigation .next {
+    font-size: 16px;
+  }
+  .pagination .dot{
+    width: 6px;
+    height: 6px;
+  }
+}
